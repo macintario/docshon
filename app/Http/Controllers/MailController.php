@@ -11,8 +11,9 @@ class MailController extends Controller
     public function index()
     {
         Mail::to('macintario@gmail.com')->send(new TestMail([
-            'title' => 'The Title',
-            'body' => 'The Body',
+            'title' => 'Buenas noticias',
+            'body' => 'Sirva la presente, para ......',
+            'signature' => 'La técnica al servicio de la patria'
         ]));
     }
 }

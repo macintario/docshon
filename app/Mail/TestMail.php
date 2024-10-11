@@ -30,7 +30,7 @@ class TestMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Test Mail',
+            subject: 'IPN-DES',
             from: new Address('test@mail.dev', 'Test Mail'),
         );
     }

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel Mail</title>
+    <title>DES Mail</title>
 </head>
 <body>
     <h1>{{ $data['title'] }}</h1>
     <p>{{ $data['body'] }}</p>
-    <p>Thank you</p>
+    <p>Gracias</p>
 </body>
 </html>
