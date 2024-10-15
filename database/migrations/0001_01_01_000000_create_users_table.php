@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('materno')->nullable();
             $table->string('nombres')->nullable();
             $table->string('rfc')->nullable();
+            $table->tinyInteger('tipo')->default('4');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
