@@ -10,9 +10,11 @@ class DocumentoCargadoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index_b()
     {
         //
+        $documentosCargados = DocumentoCargado::paginate(10);
+        return view('personas.index_b',compact('documentosCargados'));
     }
 
     /**

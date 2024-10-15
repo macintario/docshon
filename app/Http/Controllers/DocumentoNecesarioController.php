@@ -14,7 +14,7 @@ class DocumentoNecesarioController extends Controller
     {
         //
         $documentos = DocumentoNecesario::query()->when('puro_base',function($query){
-                return $query->where('puro_base',2);
+                return $query->where('puro_base',3);
         })->paginate(15);
         return view('documentos_b.index',compact('documentos'));
     }

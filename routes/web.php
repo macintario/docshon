@@ -6,6 +6,8 @@ use App\Mail\TestMail;
 use App\Http\Controllers\MailController;
 use App\Models\DocumentoNecesario;
 use App\Http\Controllers\DocumentoNecesarioController;
+use App\Http\Controllers\DocumentosUsuarioController;
+use App\Models\DocumentoCargado;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +26,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/doc_b/{user}',[DocumentoNecesarioController::class,'index'])->name('documentos_b.index');
+
+Route::get('/personas/base',[DocumentosUsuarioController::class,'index_b'])->name('personas.index_b');
+Route::get('/personas/pura',[DocumentosUsuarioController::class,'index_p'])->name('personas.index_p');
 
 
 require __DIR__.'/auth.php';

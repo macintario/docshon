@@ -24,6 +24,6 @@ class UserSeeder extends Seeder
         foreach ($users as $user) {
             User::create($user);
         }
-        //'password' => static::$password ??= Hash::make('password')
+       
     }
 }

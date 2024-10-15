@@ -13,13 +13,13 @@ return new class extends Migration
     public function up(): void
     {
         DB::statement("
-       CREATE OR REPLACE VIEW documentos_usuarios_view as
+       CREATE OR REPLACE VIEW documentos_usuarios as
       SELECT 
-        u.id, name, paterno, materno, nombres, rfc, count(c.id) as numero_documentos
+        u.id, name, u.tipo, paterno, materno, nombres, rfc, count(c.id) as numero_documentos
         FROM docshon.users as u
         left join docshon.documento_cargados as c
         on u.id = c.user_id
-        group by u.id, name, paterno, materno, nombres, rfc
+        group by u.id, u.tipo, name, paterno, materno, nombres, rfc
        ");
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statemet('Drop view if exists documentos_usuarios_view');
+        DB::statemet('Drop view if exists documentos_usuarios');
     }
 };

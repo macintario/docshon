@@ -10,9 +10,20 @@ class DocumentosUsuarioController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index_b()
     {
-        //
+        $documentosUsuarios = DocumentosUsuario::query()->when('tipo', function ($query) {
+            return $query->where('tipo', 3);
+        })->paginate(15);
+        return view('personas.index_b', compact('documentosUsuarios'));
+    }
+
+    public function index_p()
+    {
+        $documentosUsuarios = DocumentosUsuario::query()->when('tipo', function ($query) {
+            return $query->where('tipo', 4);
+        })->paginate(15);
+        return view('personas.index_b', compact('documentosUsuarios'));
     }
 
     /**
