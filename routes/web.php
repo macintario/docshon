@@ -25,7 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/doc_b/{user}',[DocumentoNecesarioController::class,'index'])->name('documentos_b.index');
+Route::get('/doc_b/{user}',[DocumentoNecesarioController::class,'index_b'])->name('documentos_b.index');
+Route::get('/doc_p/{user}',[DocumentoNecesarioController::class,'index_p'])->name('documentos_p.index');
 
 Route::get('/personas/base',[DocumentosUsuarioController::class,'index_b'])->name('personas.index_b');
 Route::get('/personas/pura',[DocumentosUsuarioController::class,'index_p'])->name('personas.index_p');

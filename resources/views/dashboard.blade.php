@@ -13,15 +13,19 @@
                     <br>
                     @switch(Auth::user()->tipo)
                         @case(2)
-                            {{ __("Honorarios con base o interinatos") }} 
+                            <a href="/personas/base">Honorarios con base o interinatos</a>
                             <br>
-                            {{ __("Honorarios puros") }}                            
+                            <a href="/personas/pura">Honorarios puros</a>
                             @break
                         @case(3)
-                            {{ __("Honorarios con base o interinatos Subir documentos") }} 
+                            <a href="/doc_b/{user}">
+                            Honorarios con base o interinatos Subir documentos
+                            </a>
                             @break
-                        @case(4)
-                            {{ __("Honorarios puros Subir documentos") }} 
+                        @case(4)                            
+                            <a href="/doc_p/{user}">
+                            Honorarios puros Subir documentos
+                            </a>
                             @break
                     
                         @default
