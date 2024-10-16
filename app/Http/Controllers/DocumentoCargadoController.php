@@ -22,7 +22,7 @@ class DocumentoCargadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('carga.create');
     }
 
     /**

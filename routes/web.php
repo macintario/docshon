@@ -7,7 +7,7 @@ use App\Http\Controllers\MailController;
 use App\Models\DocumentoNecesario;
 use App\Http\Controllers\DocumentoNecesarioController;
 use App\Http\Controllers\DocumentosUsuarioController;
-use App\Models\DocumentoCargado;
+use App\Http\Controllers\DocumentoCargadoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +30,10 @@ Route::get('/doc_p/{user}',[DocumentoNecesarioController::class,'index_p'])->nam
 
 Route::get('/personas/base',[DocumentosUsuarioController::class,'index_b'])->name('personas.index_b');
 Route::get('/personas/pura',[DocumentosUsuarioController::class,'index_p'])->name('personas.index_p');
+
+
+//Route::get('/sube_documento/{user}/{documento}',[DocumentoCargado::class,'create'])->name('documentos.create');
+Route::get('/sube_documento/{user}/{documento}',[DocumentoCargadoController::class,'create'])->name('carga.create');
 
 
 require __DIR__.'/auth.php';

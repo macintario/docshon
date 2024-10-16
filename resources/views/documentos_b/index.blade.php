@@ -21,7 +21,7 @@
                         <a href="{{ route('dashboard')}}" class="btn btn-info">&#128065</a>
                         </td>
                         <td>
-                        <a href="{{ route('dashboard')}}" class="btn btn-default"> &#8679;</a>
+                        <a href="/sube_documento/{{Auth::user()->id }}/{{$documento->id}}" class="btn btn-default"> &#8679;</a>
                         </td>
                     </tr>
                     @endforeach
