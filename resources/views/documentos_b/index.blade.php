@@ -9,25 +9,39 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <table>
-                    @foreach ($documentos as $documento)
                     <tr>
-                    <td>
-                        {{$documento->numero}}
+                        <td>
+                            <table>
+                                @foreach ($documentos as $documento)
+                                <tr>
+                                    <td>
+                                        {{$documento->numero}}
+                                    </td>
+                                    <td>
+                                        {{$documento->documento}}
+                                    </td>
+                                    <td>
+                                        <button onclick='$("viewer").attr("src","logo-ipn.jpg");' class="btn btn-info">&#128065</button>
+                                    </td>
+                                    <td>
+                                        <a href="/sube_documento/{{Auth::user()->id }}/{{$documento->id}}" class="btn btn-default"> &#8679;</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </table>
                         </td>
                         <td>
-                        {{$documento->documento}}
-                        </td>
-                        <td>
-                        <a href="{{ route('dashboard')}}" class="btn btn-info">&#128065</a>
-                        </td>
-                        <td>
-                        <a href="/sube_documento/{{Auth::user()->id }}/{{$documento->id}}" class="btn btn-default"> &#8679;</a>
+                            <iframe id="viewer" name="viewer" src="/logo-des.png"
+                                width="80%" height="400">
+                            </iframe>
                         </td>
                     </tr>
-                    @endforeach
                 </table>
             </div>
-             {{$documentos->links() }}
+            <div>
+
+            </div>
+            {{$documentos->links() }}
             <br />
         </div>
     </div>

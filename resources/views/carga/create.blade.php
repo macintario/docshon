@@ -36,11 +36,12 @@
                                 echo $base;
                                 ?>
 
-                " style="background-color:lawngreen">{{ __("Otro documento") }}</a>
+                " style="background-color:green; color:white">{{ __(" Otro documento ") }}</a>
 
                 </p>
                 <iframe src="{{ asset(Storage::disk('public')->url(session('file')) ) }}"
-                    width="80%" height="400"> </iframe>
+                    width="80%" height="400"> 
+                </iframe>
                 <!-- var_dump(Storage::disk('public')) -->
                 @endif
                 @if(session('error'))

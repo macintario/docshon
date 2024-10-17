@@ -48,7 +48,7 @@ class DocumentoCargadoController extends Controller
             $documento->nombre_subida = $filePath;
             $documento->nombre_interno = $filePath;
             $documento->save();
-            return back()->with('success', 'Archivo cargado')->with('file', $filePath);
+            return back()->with('success', ' ')->with('file', $filePath);
         }
         // Return error response
         return back()->with('error', 'No se pudo subir el archivo');
