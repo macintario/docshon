@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\DocumentoCargado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
 
 class DocumentoCargadoController extends Controller
 {
@@ -35,11 +37,17 @@ class DocumentoCargadoController extends Controller
         $request->validate([
             'file' => 'required|mimes:png,jpg,pdf|max:2048'
         ]);
+//        return $request->all();
         if ($request->file('file')->isValid()) {
             // Store the file in the 'uploads' directory on the 'public' disk
             $filePath = $request->file('file')->store('uploads', 'public');
             // Return success response
-            
+            $documento = new DocumentoCargado();
+            $documento->user_id = Auth::user()->id;
+            $documento->documento_necesario_id = $request->document_id;
+            $documento->nombre_subida = $filePath;
+            $documento->nombre_interno = $filePath;
+            $documento->save();
             return back()->with('success', 'Archivo cargado')->with('file', $filePath);
         }
         // Return error response
