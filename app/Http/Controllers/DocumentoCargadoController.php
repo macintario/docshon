@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DocumentoCargado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentoCargadoController extends Controller
 {
@@ -14,7 +15,7 @@ class DocumentoCargadoController extends Controller
     {
         //
         $documentosCargados = DocumentoCargado::paginate(10);
-        return view('personas.index_b',compact('documentosCargados'));
+        return view('personas.index_b', compact('documentosCargados'));
     }
 
     /**
@@ -31,6 +32,18 @@ class DocumentoCargadoController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'file' => 'required|mimes:png,jpg,pdf|max:2048'
+        ]);
+        if ($request->file('file')->isValid()) {
+            // Store the file in the 'uploads' directory on the 'public' disk
+            $filePath = $request->file('file')->store('uploads', 'public');
+            // Return success response
+            
+            return back()->with('success', 'Archivo cargado')->with('file', $filePath);
+        }
+        // Return error response
+        return back()->with('error', 'No se pudo subir el archivo');
     }
 
     /**
@@ -38,7 +51,9 @@ class DocumentoCargadoController extends Controller
      */
     public function show(DocumentoCargado $documentoCargado)
     {
-        //
+        $url = Storage::url("uploads/{$filename}");
+
+        return view('carga.show', ['url' => $url]);
     }
 
     /**
