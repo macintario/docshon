@@ -35,5 +35,6 @@ Route::get('/personas/pura',[DocumentosUsuarioController::class,'index_p'])->nam
 Route::get('/sube_documento/{user}/{documento}',[DocumentoCargadoController::class,'create'])->name('carga.create');
 Route::post('/sube_documento/guardar',[DocumentoCargadoController::class,'store'])->name('carga.store');
 
+Route::get('/muestra_documento/{user}/{documento}',[DocumentoCargadoController::class,'muestra'])->name('carga.muestra');
 
 require __DIR__.'/auth.php';

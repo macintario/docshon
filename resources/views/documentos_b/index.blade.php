@@ -1,3 +1,10 @@
+<script type="text/javascript">
+    function muestra(user,doc){
+        let v = document.getElementById("viewer");
+        let url ="/muestra_documento/"+user+"/"+doc;
+        v.src=url;
+    }
+</script>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -21,7 +28,7 @@
                                         {{$documento->documento}}
                                     </td>
                                     <td>
-                                        <button onclick='$("viewer").attr("src","logo-ipn.jpg");' class="btn btn-info">&#128065</button>
+                                        <button id="muestra" onclick="muestra({{Auth::user()->id }},{{$documento->id}})">ver</button>
                                     </td>
                                     <td>
                                         <a href="/sube_documento/{{Auth::user()->id }}/{{$documento->id}}" class="btn btn-default"> &#8679;</a>
@@ -32,7 +39,7 @@
                         </td>
                         <td>
                             <iframe id="viewer" name="viewer" src="/logo-des.png"
-                                width="80%" height="400">
+                                width="300" height="400">
                             </iframe>
                         </td>
                     </tr>

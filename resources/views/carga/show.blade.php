@@ -1,1 +1,1 @@
-<img src="{{ Storage::disk('public')->url(session('file')) }}" alt="Uploaded File">
+<img src="{{ Storage::disk('public')->url($file) }}" alt="Archivo Cargado"></img>

@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\DocumentoCargado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
+use function Pest\Laravel\get;
 
 class DocumentoCargadoController extends Controller
 {
@@ -37,7 +40,7 @@ class DocumentoCargadoController extends Controller
         $request->validate([
             'file' => 'required|mimes:png,jpg,pdf|max:2048'
         ]);
-//        return $request->all();
+        //        return $request->all();
         if ($request->file('file')->isValid()) {
             // Store the file in the 'uploads' directory on the 'public' disk
             $filePath = $request->file('file')->store('uploads', 'public');
@@ -87,4 +90,25 @@ class DocumentoCargadoController extends Controller
     {
         //
     }
+    public function  muestra(Request $request)
+    {
+        $the_url = url()->full();
+        $pos1 = strpos($the_url, "muestra_documento/") + 18;
+        $pos2 = strpos($the_url, "/", $pos1);
+        $id_usr = substr($the_url, $pos1, $pos2 - $pos1);
+        $id_doc = substr($the_url, $pos2 + 1);
+        $doc = DB::table('documento_cargados')->where('user_id', $id_usr)->where('documento_necesario_id', $id_doc)->first();
+        if(is_null($doc)){
+            $url="logo_ipn.png";
+            return "Archivo no cargado";
+        }else{
+            $file = $doc->nombre_interno;
+            $url = Storage::url("{$file}");
+            $url = $file;
+        }
+        return $url;
+        //return view('carga.muestra', ["file" => $url]);
+    }
+    public 
 }
+
