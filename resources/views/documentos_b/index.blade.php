@@ -28,10 +28,10 @@
                                         {{$documento->documento}}
                                     </td>
                                     <td>
-                                        <button id="muestra" onclick="muestra({{Auth::user()->id }},{{$documento->id}})">ver</button>
+                                        <button id="muestra" onclick="muestra({{Request::segment(2)}},{{$documento->id}})">&#128065;</button>
                                     </td>
                                     <td>
-                                        <a href="/sube_documento/{{Auth::user()->id }}/{{$documento->id}}" class="btn btn-default"> &#8679;</a>
+                                        <a href="/sube_documento/{{Request::segment(2)}}/{{$documento->id}}" class="btn btn-default"> &#8679;</a>
                                     </td>
                                 </tr>
                                 @endforeach

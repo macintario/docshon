@@ -35,11 +35,16 @@
                         {{$docU->numero_documentos}}
                         </td>
                         <td>
-                        <a href="{{ route('dashboard')}}" class="btn btn-info">&#128065</a>
+                        @if( Request::segment(2) == "base" )
+                        <a href="/doc_b/{{$docU->id}}" class="btn btn-info">&#128065</a>
+                        @else
+                        <a href="/doc_p/{{$docU->id}}" class="btn btn-info">&#128065</a>
+                        @endif
                         </td>
                     </tr>
                     @endforeach
                 </table>
+                {{ __() }}
             </div>
              
             <br />

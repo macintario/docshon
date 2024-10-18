@@ -15,9 +15,7 @@
                 <p>{{ session('success') }}
 
                     <a href="
-                                <?php
-
-
+                          <?php
                                 $tipo = Auth::user()->tipo;
                                 $id = (string) Auth::user()->id;
                                 switch ($tipo) {
@@ -29,7 +27,7 @@
                                         break;
 
                                     default:
-                                        # code...
+                                        $page = "/doc_b/";
                                         break;
                                 }
                                 $base = $page . $id;

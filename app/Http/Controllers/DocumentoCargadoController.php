@@ -106,9 +106,9 @@ class DocumentoCargadoController extends Controller
             $url = Storage::url("{$file}");
             $url = $file;
         }
-        return $url;
-        //return view('carga.muestra', ["file" => $url]);
+        //return $url;
+        return view('carga.muestra', ["file" => $url]);
     }
-    public 
+    
 }
 

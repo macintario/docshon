@@ -1,1 +1,1 @@
-{{DocumentoCargadoController::muestra)}}
+<iframe src="{{ Storage::disk('public')->url($file) }}" width="300" height="800"></iframe>
