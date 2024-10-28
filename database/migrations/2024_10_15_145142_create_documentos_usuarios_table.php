@@ -16,8 +16,8 @@ return new class extends Migration
        CREATE OR REPLACE VIEW documentos_usuarios as
       SELECT 
         u.id, name, u.tipo, paterno, materno, nombres, rfc, count(c.id) as numero_documentos
-        FROM docshon.users as u
-        left join docshon.documento_cargados as c
+        FROM users as u
+        left join documento_cargados as c
         on u.id = c.user_id
         group by u.id, u.tipo, name, paterno, materno, nombres, rfc
        ");
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statemet('Drop view if exists documentos_usuarios');
+        DB::statement('Drop view if exists documentos_usuarios');
     }
 };

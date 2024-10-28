@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\DocumentoNecesario;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+
 
 class DocumentoNecesarioController extends Controller
 {
@@ -19,7 +21,6 @@ class DocumentoNecesarioController extends Controller
 
     public function index_p()
     {
-        //
         $documentos = DocumentoNecesario::query()->where('puro_base','=','4')->paginate(15);
         return view('documentos_b.index',compact('documentos'));
     }
