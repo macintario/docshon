@@ -50,6 +50,8 @@ class DocumentoCargadoController extends Controller
             $documento->documento_necesario_id = $request->document_id;
             $documento->nombre_subida = $filePath;
             $documento->nombre_interno = $filePath;
+            $anteriores=DocumentoCargado::where([['user_id',$documento->user_id],['documento_necesario_id',$request->document_id]]);
+            $anteriores->delete();
             $documento->save();
             return back()->with('success', ' ')->with('file', $filePath);
         }

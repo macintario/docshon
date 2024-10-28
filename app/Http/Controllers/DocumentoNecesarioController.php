@@ -13,18 +13,14 @@ class DocumentoNecesarioController extends Controller
     public function index_b()
     {
         //
-        $documentos = DocumentoNecesario::query()->when('puro_base',function($query){
-                return $query->where('puro_base',3);
-        })->paginate(15);
+        $documentos = DocumentoNecesario::query()->where('puro_base','=','3')->paginate(15);
         return view('documentos_b.index',compact('documentos'));
     }
 
     public function index_p()
     {
         //
-        $documentos = DocumentoNecesario::query()->when('puro_base',function($query){
-                return $query->where('puro_base',4);
-        })->paginate(15);
+        $documentos = DocumentoNecesario::query()->where('puro_base','=','4')->paginate(15);
         return view('documentos_b.index',compact('documentos'));
     }
 
