@@ -9,15 +9,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <h1> Carga de documentos </h1>
-
-
                 @if(session('success'))
                 <p>{{ session('success') }}
 
                     <a href="
                           <?php
-                                $tipo = Auth::user()->tipo;
-                                $id = (string) Auth::user()->id;
+                                $id = $usr;
                                 switch ($tipo) {
                                     case 3:
                                         $page = "/doc_b/";

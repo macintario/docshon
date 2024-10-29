@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DocumentoCargado;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,9 +27,12 @@ class DocumentoCargadoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('carga.create');
+        $usr = $request->segment(2);
+        $tipo = User::find($usr)->tipo;
+        return view('carga.create')->with('tipo',$tipo)
+                                   ->with('usr',$usr);
     }
 
     /**
