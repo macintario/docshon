@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-
+        $this->call(AutoridadesSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(DocumentoNecesarioSeeder::class);
         $this->call(TipoUsuarioSeeder::class);
+        $this->call(RegimenFiscalSeeder::class);
     }
 }
