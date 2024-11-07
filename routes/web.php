@@ -8,6 +8,7 @@ use App\Models\DocumentoNecesario;
 use App\Http\Controllers\DocumentoNecesarioController;
 use App\Http\Controllers\DocumentosUsuarioController;
 use App\Http\Controllers\DocumentoCargadoController;
+use App\Http\Controllers\DatosPersonalesController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/personales/{user}',[DatosPersonalesController::class,'edit']);
 Route::get('/doc_b/{user}',[DocumentoNecesarioController::class,'index_b'])->name('documentos_b.index');
 Route::get('/doc_p/{user}',[DocumentoNecesarioController::class,'index_p'])->name('documentos_p.index');
 
@@ -36,5 +38,6 @@ Route::get('/sube_documento/{user}/{documento}',[DocumentoCargadoController::cla
 Route::post('/sube_documento/guardar',[DocumentoCargadoController::class,'store'])->name('carga.store');
 
 Route::get('/muestra_documento/{user}/{documento}',[DocumentoCargadoController::class,'muestra'])->name('carga.muestra');
+
 
 require __DIR__.'/auth.php';

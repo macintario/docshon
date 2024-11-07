@@ -68,7 +68,7 @@ class DocumentoCargadoController extends Controller
      */
     public function show(DocumentoCargado $documentoCargado)
     {
-        $url = Storage::url("uploads/{$filename}");
+        $url = Storage::url("uploads/{$documentoCargado}");
 
         return view('carga.show', ['url' => $url]);
     }

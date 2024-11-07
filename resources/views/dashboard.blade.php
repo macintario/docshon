@@ -18,13 +18,23 @@
                             <a href="/personas/pura">Honorarios puros</a>
                             @break
                         @case(3)
+                            <h3>Honorarios con base o interinatos</h3>
+                            <a href="/personales/{{Auth::user()->id}}">
+                            &#9997; Datos Personales
+                            </a>
+                            <br>
                             <a href="/doc_b/{{Auth::user()->id}}">
-                            Honorarios con base o interinatos Subir documentos
+                            &#128451; Subir documentos
                             </a>
                             @break
-                        @case(4)                            
+                        @case(4)
+                            <h1>Honorarios puros</h1>
+                            <a href="/personales/{{Auth::user()->id}}">
+                            &#9997; Datos Personales
+                            </a>
+                            <br>
                             <a href="/doc_p/{{Auth::user()->id}}">
-                            Honorarios puros Subir documentos
+                            &#128451; Subir documentos
                             </a>
                             @break
                     
