@@ -26,7 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/personales/{user}',[DatosPersonalesController::class,'edit']);
+Route::get('/personales/{user}',[DatosPersonalesController::class,'edit'])->name('personales.edit');
+Route::post('/personales/{user}/update',[DatosPersonalesController::class,'update'])->name('personales.update');
+
 Route::get('/doc_b/{user}',[DocumentoNecesarioController::class,'index_b'])->name('documentos_b.index');
 Route::get('/doc_p/{user}',[DocumentoNecesarioController::class,'index_p'])->name('documentos_p.index');
 
