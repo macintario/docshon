@@ -16,4 +16,5 @@ class MailController extends Controller
             'signature' => 'La técnica al servicio de la patria'
         ]));
     }
+    
 }
