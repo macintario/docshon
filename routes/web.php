@@ -34,8 +34,8 @@ Route::any('/personas/pura',[DocumentosUsuarioController::class,'index_p'])->nam
 Route::get('/personales/{user}',[DatosPersonalesController::class,'edit'])->name('personales.edit');
 Route::post('/personales/{user}/update',[DatosPersonalesController::class,'update'])->name('personales.update');
 
-Route::get('/doc_b/{user}',[DocumentoNecesarioController::class,'index_b'])->name('documentos_b.index');
-Route::get('/doc_p/{user}',[DocumentoNecesarioController::class,'index_p'])->name('documentos_p.index');
+Route::any('/doc_b/{user}',[DocumentoNecesarioController::class,'index_b'])->name('documentos_b.index');
+Route::any('/doc_p/{user}',[DocumentoNecesarioController::class,'index_p'])->name('documentos_p.index');
 
 Route::get('/sube_documento/{user}/{documento}',[DocumentoCargadoController::class,'create'])->name('carga.create');
 Route::post('/sube_documento/guardar',[DocumentoCargadoController::class,'store'])->name('carga.store');

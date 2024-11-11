@@ -25,12 +25,16 @@ class DatosPersonalesController extends Controller
     public function update(Request $request, $id){
         $usr = User::find($id);
         $usr->update($request->all());
+        if(Auth::user->tipo ==2 ){
         if($usr->tipo==3){
             $ruta="personas.base";
         } else {
             $ruta="personas.pura";
+        }else{
+            
+            $ruta="dashboard";
+            
         }
-
         return redirect()->route($ruta); 
     }
 }   
