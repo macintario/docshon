@@ -22,7 +22,7 @@ class DocumentoNecesarioController extends Controller
     public function index_p()
     {
         $documentos = DocumentoNecesario::query()->where('puro_base','=','4')->paginate(15);
-        return view('documentos_b.index',compact('documentos'));
+        return view('documentos_p.index',compact('documentos'));
     }
 
     /**

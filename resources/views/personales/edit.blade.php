@@ -25,7 +25,7 @@
                             </tr>
                             <tr>
                                 <td>Paterno</td>
-                                <td><input type="text" size="60" name="pateno" value="{{ $datosPersonales->paterno }}"></td>
+                                <td><input type="text" size="60" name="paterno" value="{{ $datosPersonales->paterno }}"></td>
                             </tr>
                             <tr>
                                 <td>Materno</td>
@@ -33,7 +33,7 @@
                             </tr>
                             <tr>
                                 <td>RFC</td>
-                                <td><input type="text" size="15" maxlength="15" name="rfc" value="{{ $datosPersonales->RFC }}"></td>
+                                <td><input type="text" size="15" maxlength="15" name="rfc" value="{{ $datosPersonales->rfc }}"></td>
                             </tr>
                             <tr>
                                 <td>CURP</td>

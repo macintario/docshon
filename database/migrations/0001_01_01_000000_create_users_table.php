@@ -22,6 +22,14 @@ return new class extends Migration
             $table->string('rfc')->nullable();
             $table->tinyInteger('tipo')->default('4');
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('curp')->default('CURP');
+            $table->string('direccion')->default('direccion');
+            $table->string('correo_alterno')->nullable();
+            $table->longText('actividades_mensuales')->nullable();
+            $table->longText('actividades_anuales')->nullable();
+            $table->string('telefono_celular')->default('00');
+            $table->string('telefono_casa')->default('00');
+            $table->enum('estado_documentos',['Pendientes','Completos','Con Observaciones','Correctos'])->default('Pendientes');
             $table->rememberToken();
             $table->timestamps();
         });

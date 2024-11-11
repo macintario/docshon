@@ -15,6 +15,7 @@ class DocumentosUsuarioController extends Controller
         $documentosUsuarios = DocumentosUsuario::query()->when('tipo', function ($query) {
             return $query->where('tipo', 3);
         })->paginate(15);
+//        return $documentosUsuarios;
         return view('personas.index_b', compact('documentosUsuarios'));
     }
 

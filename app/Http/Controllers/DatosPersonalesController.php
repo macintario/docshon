@@ -23,11 +23,14 @@ class DatosPersonalesController extends Controller
 //        return $datosPersonales;
     }
     public function update(Request $request, $id){
-        $post = User::find($id);
-        $post->update($request->all());
-        
+        $usr = User::find($id);
+        $usr->update($request->all());
+        if($usr->tipo==3){
+            $ruta="personas.base";
+        } else {
+            $ruta="personas.pura";
+        }
 
-        return redirect()->route('dashboard')
-        ->with('success', 'Datos Guardados.'); 
+        return redirect()->route($ruta); 
     }
 }   

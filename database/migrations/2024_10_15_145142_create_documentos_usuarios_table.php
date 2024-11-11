@@ -15,7 +15,7 @@ return new class extends Migration
         DB::statement("
        CREATE OR REPLACE VIEW documentos_usuarios as
       SELECT 
-        u.id, name, u.tipo, paterno, materno, nombres, rfc, count(c.id) as numero_documentos
+        u.id, name, u.tipo, paterno, materno, nombres, rfc, estado_documentos, count(c.id) as numero_documentos
         FROM users as u
         left join documento_cargados as c
         on u.id = c.user_id
