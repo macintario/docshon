@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 
 class DatosPersonalesController extends Controller
@@ -19,22 +20,23 @@ class DatosPersonalesController extends Controller
         $datosPersonales = User::find($id);
         $regimenFiscales = RegimenFiscal::all();
 
-        return view('personales.edit',compact('datosPersonales'),compact('regimenFiscales'));
-//        return $datosPersonales;
+        return view('personales.edit', compact('datosPersonales'), compact('regimenFiscales'));
+        //        return $datosPersonales;
     }
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $usr = User::find($id);
         $usr->update($request->all());
-        if(Auth::user->tipo ==2 ){
-        if($usr->tipo==3){
-            $ruta="personas.base";
+        if (Auth::user()->tipo == 2) {
+            if ($usr->tipo == 3) {
+                $ruta = "personas.base";
+            } else {
+                $ruta = "personas.pura";
+            }
         } else {
-            $ruta="personas.pura";
-        }else{
-            
-            $ruta="dashboard";
-            
+
+            $ruta = "dashboard";
         }
-        return redirect()->route($ruta); 
+        return redirect()->route($ruta);
     }
-}   
+}

@@ -19,7 +19,7 @@ return new class extends Migration
         FROM users as u
         left join documento_cargados as c
         on u.id = c.user_id
-        group by u.id, u.tipo, name, paterno, materno, nombres, rfc
+        group by u.id, u.tipo, name, paterno, materno, nombres, rfc, estado_documentos
        ");
     }
 
