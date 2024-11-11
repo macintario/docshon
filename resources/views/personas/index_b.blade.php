@@ -50,7 +50,7 @@
                                 <span x-data="{ tooltip: false }" x-on:mouseover="tooltip = true"
                                     x-on:mouseleave="tooltip = false" class="h-5 ml-12 cursor-pointer w-15">
 
-                                    <a href="/observaciones/{{ $docU->id }}" class="btn btn-info">
+                                    <a href="/comunica/{{ $docU->id }}" class="btn btn-info">
                                         &#128387;
                                     </a>
                                     <div x-show="tooltip"

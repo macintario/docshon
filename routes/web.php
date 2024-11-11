@@ -42,5 +42,7 @@ Route::post('/sube_documento/guardar',[DocumentoCargadoController::class,'store'
 
 Route::get('/muestra_documento/{user}/{documento}',[DocumentoCargadoController::class,'muestra'])->name('carga.muestra');
 
+Route::get('/comunica/{user}',[MailController::class,'comunicacion'])->name('correo.comunicacion');
+Route::post('/enviacorreo',[MailController::class,'enviar'])->name('correo.enviar');
 
 require __DIR__.'/auth.php';
