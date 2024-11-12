@@ -28,12 +28,16 @@ class MailController extends Controller
     public function enviar(Request $request)
     {
         $destinatario="macintario@gmail.com";
+        $destinatario = "kgonzalezt2001@alumno.ipn.mx";
         //$destinatario= $request->mailto;
 
+
         $mail = Mail::to($destinatario)->send(new comunicacion([
-            'body'=> $request->msg,
+            'destinatario'=> $request->destinatario,
+            'body'=> nl2br($request->msg),
         ]));
 
-        //return $request;
+
+        return redirect('/dashboard');
     }
 }

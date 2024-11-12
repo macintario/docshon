@@ -27,7 +27,8 @@ class Comunicacion extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Comunicacion',
+            subject: 'IPN-DES Honorarios',
+            replyTo:'igutierrez@ipn.mx'
         );
     }
 

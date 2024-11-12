@@ -12,21 +12,12 @@
                     {{ __("Enviar correo a $usr->nombres $usr->paterno $usr->materno") }} ({{ $usr->email }})
                     <form method="post" name="mailform" action="/enviacorreo ">
                         @csrf
-                        <br><label>Asunto</label><input type="text" name="asunto" value="DES - Honorarios">
+                        <!--<br><label>Asunto</label><input type="text" name="asunto" value="DES - Honorarios">-->
                         <input type="hidden" name="mailto" value="{{ $usr->email }}">
+                        <input type="hidden" name="destinatario" value="{{__("$usr->nombres $usr->paterno $usr->materno") }}">
                         <br>
-                        <textarea rows="30" cols="80 id="msg" name="msg">
-{{ __("$usr->nombres $usr->paterno $usr->materno:") }}
-Presente
-
-
-
-Atentamente
-.
-
-
-Dirección de Educación Superior
-Instituto Politécnico Nacional
+                        <textarea rows="20" cols="80 id="msg" name="msg">
+Mensaje para el destinatario
                     </textarea>
                         <br>
                         <x-primary-button>
