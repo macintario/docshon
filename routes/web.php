@@ -44,5 +44,6 @@ Route::get('/muestra_documento/{user}/{documento}',[DocumentoCargadoController::
 
 Route::get('/comunica/{user}',[MailController::class,'comunicacion'])->name('correo.comunicacion');
 Route::post('/enviacorreo',[MailController::class,'enviar'])->name('correo.enviar');
+Route::any('/privacidad',[DatosPersonalesController::class,'aviso'])->name('privacidad');
 
 require __DIR__.'/auth.php';
