@@ -42,4 +42,10 @@ class DatosPersonalesController extends Controller
     public function privacidad(){
         return view('privacidad');
     }
+    public function aprobar_privacidad(Request $request){
+        $usr = User::find($request->user_id);
+        $usr->privacidad_aceptada=1;
+        $usr->update();
+        return redirect('dashboard');
+    }
 }
