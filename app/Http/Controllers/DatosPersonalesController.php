@@ -39,7 +39,7 @@ class DatosPersonalesController extends Controller
         }
         return redirect()->route($ruta);
     }
-    public function aviso(){
+    public function privacidad(){
         return view('privacidad');
     }
 }

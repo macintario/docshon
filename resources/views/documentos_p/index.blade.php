@@ -28,7 +28,7 @@
                                 @foreach ($documentos as $documento)
                                 <tr>
                                     <td style="text-align: right">
-                                        {{$documento->numero}}.
+                                        {{$documento->numero}}.-
                                     </td>
                                     <td>
                                         {{$documento->documento}}
