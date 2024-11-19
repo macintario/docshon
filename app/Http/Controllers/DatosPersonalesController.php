@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Autoridades;
 use App\Models\RegimenFiscal;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -19,14 +20,19 @@ class DatosPersonalesController extends Controller
     {
         $datosPersonales = User::find($id);
         $regimenFiscales = RegimenFiscal::all();
-
-        return view('personales.edit', compact('datosPersonales'), compact('regimenFiscales'));
+        $autoridades = Autoridades::all();
+        //return $datosPersonales;
+        return view('personales.edit')
+            ->with(compact('datosPersonales'))
+            ->with(compact('autoridades'))
+            ->with(compact('regimenFiscales'));
         //        return $datosPersonales;
     }
     public function update(Request $request, $id)
     {
         $usr = User::find($id);
         $usr->update($request->all());
+        //return $request;
         if (Auth::user()->tipo == 2) {
             if ($usr->tipo == 3) {
                 $ruta = "personas.base";

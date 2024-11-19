@@ -29,9 +29,11 @@ class User extends Authenticatable
         'correo_alterno',
         'actividades_mensuales',
         'actividades_anuales',
-        'regimen_fiscal',
+        'regimen_fiscal_id',
         'telefono_celular',
         'telefono_casa',
+        'jefe_directo_id',
+        'jefe_division_id',
     ];
 
     /**

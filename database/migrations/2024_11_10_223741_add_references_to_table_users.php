@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->foreignId('jefe_directo_id')->references('id')->on('autoridades')->default(1);
-            $table->foreignId('jefe_departamento_id')->references('id')->on('autoridades')->default(1);
+            $table->foreignId('jefe_division_id')->references('id')->on('autoridades')->default(1);
             $table->foreignIdFor(RegimenFiscal::class)->default(1);
             $table->tinyInteger('privacidad_aceptada')->default(0);
         });

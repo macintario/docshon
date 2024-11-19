@@ -73,11 +73,33 @@
                                 <td><select name="regimen_fiscal_id">
                                         @foreach ($regimenFiscales as $regimen)
                                             <option value="{{ $regimen->id }}"
-                                                @if ($regimen->id == old('regimen_fiscal_id', $regimen->id)) selected="selected" @endif>
+                                                @if ($datosPersonales->regimen_fiscal_id == old('regimen_fiscal_id', $regimen->id)) selected="selected" @endif>
                                                 {{ $regimen->regimen }}
                                         @endforeach
                                     </select></td>
                                 <td style="font-size: 80%"> Régimen tributario registrado ante el SAT </td>
+                            </tr>
+                            <tr style="background-color:lightgray">
+                                <td>Jefe Inmediato</td>
+                                <td><select name="jefe_directo_id">
+                                        @foreach ($autoridades as $autoridad)
+                                            <option value="{{ $autoridad->id }}"
+                                                @if ($datosPersonales->jefe_directo_id == old('jefe_directo_id', $autoridad->id)) selected="selected" @endif>
+                                                {{ $autoridad->nombre }}
+                                        @endforeach
+                                    </select></td>
+                                <td style="font-size: 80%"> Jefe inmediato</td>
+                            </tr>
+                            <tr style="background-color:white">
+                                <td>Jefe de División</td>
+                                <td><select name="jefe_division_id">
+                                        @foreach ($autoridades as $autoridad)
+                                            <option value="{{ $autoridad->id }}"
+                                                @if ($datosPersonales->jefe_division_id == old('jefe_division_id', $autoridad->id)) selected="selected" @endif>
+                                                {{ $autoridad->nombre }}
+                                        @endforeach
+                                    </select></td>
+                                <td style="font-size: 80%"> Jefe de División </td>
                             </tr>
                             <tr style="background-color:lightgray">
                                 <td>Teléfono Celular</td>
