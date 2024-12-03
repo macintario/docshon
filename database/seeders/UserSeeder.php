@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             [
                 'tipo' => '1',
                 'name' => 'admin',
-                'email' => 'admin',
+                'email' => 'admin@ipn.mx',
                 'password' => Hash::make('Chillu#08'),
                 'jefe_directo_id' => 1,
                 'jefe_division_id' => 1
@@ -27,9 +27,9 @@ class UserSeeder extends Seeder
             [
                 'tipo' => '2',
                 'name' => 'des',
-                'email' => 'des',
+                'email' => 'des@ipn.mx',
                 'password' => Hash::make('Sup3r10r#24'),
-                'paterno' => 'DIrección',
+                'paterno' => 'Dirección',
                 'materno' => 'Educacion',
                 'nombres' => 'Superior',
                 'jefe_directo_id' => 1,

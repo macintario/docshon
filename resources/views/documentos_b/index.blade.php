@@ -23,6 +23,7 @@
                                     <th>Documento</th>
                                     <th>Mostrar</th>
                                     <th>Cargar</th>
+                                    <th>Enlace</th>
                                 </tr>
                                 @foreach ($documentos as $documento)
                                     <tr>
@@ -40,6 +41,12 @@
                                             <a href="/sube_documento/{{ Request::segment(2) }}/{{ $documento->id }}"
                                                 class="btn btn-default"> &#8679;</a>
                                         </td>
+                                        @if ($documento->url != '')
+                                            <td>
+                                                <a target="_blank" rel="noopener noreferrer"
+                                                    href="{{ $documento->url }}">&#128279;</a>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </table>
